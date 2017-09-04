@@ -1,0 +1,3 @@
+LISTALIVRO 2
+L: "AAA";$123.00;"MP"
+L: "CCC";$123.00;"MP"

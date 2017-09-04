@@ -1,0 +1,3 @@
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/cmake-build-debug/CMakeFiles/Loja.dir

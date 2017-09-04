@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Loja"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/marcus/Documentos/UFRN/PROGRAMAÇAO\ AVANÇADA/Projeto\ Loja/Loja/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/marcus/Documentos/UFRN/PROGRAMAÇAO\ AVANÇADA/Projeto\ Loja/Loja/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/marcus/Documentos/UFRN/PROGRAMAÇAO\ AVANÇADA/Projeto\ Loja/Loja/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/marcus/Documentos/UFRN/PROGRAMAÇAO\ AVANÇADA/Projeto\ Loja/Loja/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/marcus/Documentos/UFRN/PROGRAMAÇAO\ AVANÇADA/Projeto\ Loja/Loja/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/marcus/Documentos/UFRN/PROGRAMAÇAO\ AVANÇADA/Projeto\ Loja/Loja/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/marcus/Documentos/UFRN/PROGRAMAÇAO\ AVANÇADA/Projeto\ Loja/Loja/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/marcus/Documentos/UFRN/PROGRAMAÇAO\ AVANÇADA/Projeto\ Loja/Loja/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/marcus/Documentos/UFRN/PROGRAMAÇAO\ AVANÇADA/Projeto\ Loja/Loja/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/marcus/Documentos/UFRN/PROGRAMAÇAO\ AVANÇADA/Projeto\ Loja/Loja/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/marcus/Documentos/UFRN/PROGRAMAÇAO\ AVANÇADA/Projeto\ Loja/Loja/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/marcus/Documentos/UFRN/PROGRAMAÇAO\ AVANÇADA/Projeto\ Loja/Loja/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Loja">
+				<Option output="/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/cmake-build-debug/Loja" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/marcus/Documentos/UFRN/PROGRAMAÇAO\ AVANÇADA/Projeto\ Loja/Loja/cmake-build-debug/Makefile&quot;  VERBOSE=1 Loja"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/marcus/Documentos/UFRN/PROGRAMAÇAO\ AVANÇADA/Projeto\ Loja/Loja/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/marcus/Documentos/UFRN/PROGRAMAÇAO\ AVANÇADA/Projeto\ Loja/Loja/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/marcus/Documentos/UFRN/PROGRAMAÇAO\ AVANÇADA/Projeto\ Loja/Loja/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Loja/fast">
+				<Option output="/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/cmake-build-debug/Loja" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/marcus/Documentos/UFRN/PROGRAMAÇAO\ AVANÇADA/Projeto\ Loja/Loja/cmake-build-debug/Makefile&quot;  VERBOSE=1 Loja/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/marcus/Documentos/UFRN/PROGRAMAÇAO\ AVANÇADA/Projeto\ Loja/Loja/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/marcus/Documentos/UFRN/PROGRAMAÇAO\ AVANÇADA/Projeto\ Loja/Loja/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/marcus/Documentos/UFRN/PROGRAMAÇAO\ AVANÇADA/Projeto\ Loja/Loja/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Cd.cpp">
+			<Option target="Loja"/>
+		</Unit>
+		<Unit filename="/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Cd.h">
+			<Option target="Loja"/>
+		</Unit>
+		<Unit filename="/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Dvd.cpp">
+			<Option target="Loja"/>
+		</Unit>
+		<Unit filename="/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Dvd.h">
+			<Option target="Loja"/>
+		</Unit>
+		<Unit filename="/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/ListaCD.cpp">
+			<Option target="Loja"/>
+		</Unit>
+		<Unit filename="/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/ListaCD.h">
+			<Option target="Loja"/>
+		</Unit>
+		<Unit filename="/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/ListaDVD.cpp">
+			<Option target="Loja"/>
+		</Unit>
+		<Unit filename="/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/ListaDVD.h">
+			<Option target="Loja"/>
+		</Unit>
+		<Unit filename="/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/ListaLivro.cpp">
+			<Option target="Loja"/>
+		</Unit>
+		<Unit filename="/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/ListaLivro.h">
+			<Option target="Loja"/>
+		</Unit>
+		<Unit filename="/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Livro.cpp">
+			<Option target="Loja"/>
+		</Unit>
+		<Unit filename="/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Livro.h">
+			<Option target="Loja"/>
+		</Unit>
+		<Unit filename="/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Produto.cpp">
+			<Option target="Loja"/>
+		</Unit>
+		<Unit filename="/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Produto.h">
+			<Option target="Loja"/>
+		</Unit>
+		<Unit filename="/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/main.cpp">
+			<Option target="Loja"/>
+		</Unit>
+		<Unit filename="/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,92 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Cd.cpp
+Cd.h
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Cd.h
+
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Cd.h
+Produto.h
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Produto.h
+
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Dvd.cpp
+Dvd.h
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Dvd.h
+
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Dvd.h
+Produto.h
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Produto.h
+
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/ListaCD.cpp
+ListaCD.h
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/ListaCD.h
+
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/ListaCD.h
+Cd.h
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Cd.h
+
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/ListaDVD.cpp
+ListaDVD.h
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/ListaDVD.h
+
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/ListaDVD.h
+Dvd.h
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Dvd.h
+
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/ListaLivro.cpp
+ListaLivro.h
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/ListaLivro.h
+
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/ListaLivro.h
+Livro.h
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Livro.h
+
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Livro.cpp
+Livro.h
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Livro.h
+
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Livro.h
+Produto.h
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Produto.h
+
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Produto.cpp
+iostream
+-
+Produto.h
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Produto.h
+
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Produto.h
+iostream
+-
+stdint.h
+-
+fstream
+-
+string
+-
+limits
+-
+
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/main.cpp
+iostream
+-
+Produto.h
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Produto.h
+Livro.h
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Livro.h
+Cd.h
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Cd.h
+Dvd.h
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/Dvd.h
+ListaLivro.h
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/ListaLivro.h
+ListaCD.h
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/ListaCD.h
+ListaDVD.h
+/home/marcus/Documentos/UFRN/PROGRAMAÇAO AVANÇADA/Projeto Loja/Loja/ListaDVD.h
+
