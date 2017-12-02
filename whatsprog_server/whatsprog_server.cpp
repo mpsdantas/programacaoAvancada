@@ -225,7 +225,10 @@ void Server::aguardarAcao(){
             }else{
                 switch(comando){
                     case CMD_NOVA_MSG:
-                        cout << "Enviar msg";
+                        enviarMensagemCliente((*i));
+                        break;
+                    case CMD_MSG_LIDA1:
+
                         break;
                     default:
                         cout << "Operação inválida.";
@@ -261,16 +264,19 @@ void Server::enviarMensagemCliente(Usuario usuario){
                             //iterar o buffer de mensagens desse determinado usuário
                                 //checando se tem id igual
                         if (mensagem.setDestinatario(param2)) {
-                            // verificar se user existe
-                                //iterar a lista de users checando se tem um igual
-
-
-                            if (mensagem.setTexto(param3)) {
-                                // verificar se user ta on
-                                    //se sim eviar msg
-                                //se não salva no buffer
-                            }else{
-                                enviarComando(CMD_MSG_INVALIDA,param1,usuario.getSocket());
+                            for(list<Mensagem>::iterator k = buffer.begin(); k != buffer.end();k++){
+                                if((*k).getDestinatario().compare(param2)==0){
+                                    if (mensagem.setTexto(param3)) {
+                                        // verificar se user ta on
+                                            //se sim eviar msg
+                                        enviarComando(CMD_MSG_RECEBIDA,param1,usuario.getSocket());
+                                        //Armazenar no buffer
+                                    }else{
+                                        enviarComando(CMD_MSG_INVALIDA,param1,usuario.getSocket());
+                                    }
+                                }else{
+                                    enviarComando(CMD_USER_INVALIDO, param1, usuario.getSocket());
+                                }
                             }
                         } else {
                             enviarComando(CMD_USER_INVALIDO,param1,usuario.getSocket());
@@ -282,6 +288,42 @@ void Server::enviarMensagemCliente(Usuario usuario){
                     usuario.getSocket().shutdown();
                 }
             }
+        }
+    }
+}
+void Server::cmg_msg_lida1(Usuario usuario){
+    int32_t param1;
+    string param2;//remetente
+    Mensagem mensagem;
+    iResult = usuario.getSocket().read_int(param1, TIMEOUT*1000);
+    if (iResult == SOCKET_ERROR){
+        cerr << "Erro na comunicacao \n";
+        usuario.getSocket().shutdown();
+    } else{
+        iResult = usuario.getSocket().read_string(param2, TIMEOUT*1000);
+
+        if (iResult == SOCKET_ERROR){
+            cerr << "Erro na comunicacao \n";
+            usuario.getSocket().shutdown();
+        }else{
+            for (list<Mensagem>::iterator it=buffer.begin(); it != buffer.end(); ++it) {
+                if((*it).getRemetente().compare(param2) == 0){
+                    if ((*it).getId() == param1){
+                        (*it).setStatus(MSG_LIDA);
+
+                        for (list<Usuario>::iterator a=usuarios.begin(); a != usuarios.end(); ++a) {
+
+                            if ((*a).getLogin().compare(param2) == 0){
+                                enviarComando(CMD_MSG_LIDA2, param1, (*a).getSocket());
+                                buffer.erase(it);
+                                return;
+                            }
+
+                        }
+                    }
+                }
+            }
+            usuario.getSocket().shutdown();
         }
     }
 }

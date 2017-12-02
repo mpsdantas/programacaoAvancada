@@ -117,5 +117,6 @@ public:
     bool enviarMensagem();
     void aguardarAcao();
     void enviarMensagemCliente(Usuario usuario);
+    void cmg_msg_lida1(Usuario usuario);
 };
 //CLASSE SERVER
