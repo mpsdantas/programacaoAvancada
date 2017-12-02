@@ -1,0 +1,53 @@
+# depslib dependency file v1.0
+1512024222 source:c:\users\marcus paulo\documents\whatsprog\whatsprog_server\whatsprog_server.cpp
+	"whatsprog_server.h"
+
+1495738935 source:c:\users\marcus paulo\documents\whatsprog\whatsprog_server\winsocket.cpp
+	<iostream>
+	"winsocket.h"
+
+1498662100 c:\users\marcus paulo\documents\whatsprog\whatsprog_server\winsocket.h
+	<iostream>
+	<cstdlib>
+	<winsock2.h>
+	<ws2tcpip.h>
+	<string>
+
+1512024181 c:\users\marcus paulo\documents\whatsprog\whatsprog_server\whatsprog_server.h
+	<iostream>
+	<string>
+	<vector>
+	<list>
+	<stdint.h>
+	"winsocket.h"
+
+1512024231 source:c:\users\marcus paulo\documents\whatsprog\whatsprog_server\whatsprog_main.cpp
+	<iostream>
+	"whatsprog_server.h"
+
+1512140433 source:c:\users\marcus paulo\desktop\whatsprog_server\whatsprog_main.cpp
+	<iostream>
+	"whatsprog_server.h"
+
+1512174783 c:\users\marcus paulo\desktop\whatsprog_server\whatsprog_server.h
+	<iostream>
+	<string>
+	<vector>
+	<list>
+	<stdint.h>
+	"winsocket.h"
+
+1512164774 c:\users\marcus paulo\desktop\whatsprog_server\winsocket.h
+	<iostream>
+	<cstdlib>
+	<winsock2.h>
+	<ws2tcpip.h>
+	<string>
+
+1495742535 source:c:\users\marcus paulo\desktop\whatsprog_server\winsocket.cpp
+	<iostream>
+	"winsocket.h"
+
+1512143229 source:c:\users\marcus paulo\desktop\whatsprog_server\whatsprog_server.cpp
+	"whatsprog_server.h"
+
