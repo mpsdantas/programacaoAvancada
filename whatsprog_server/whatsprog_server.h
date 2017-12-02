@@ -117,6 +117,8 @@ public:
     bool enviarMensagem();
     void aguardarAcao();
     void enviarMensagemCliente(Usuario usuario);
-    void cmg_msg_lida1(Usuario usuario);
+    void cmd_msg_lida1(Usuario usuario);
+    bool enviarComando(CommandWhatsProg comando, int32_t param1, string param2, string param3, tcp_winsocket socket);
+    void checkBuffer(Usuario usuario);
 };
 //CLASSE SERVER
