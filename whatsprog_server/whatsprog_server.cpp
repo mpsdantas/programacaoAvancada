@@ -68,8 +68,8 @@ void Server::checkBuffer(Usuario usuario){
     }
 }
 /*
-    Metodo que verifica se um usuário é repetido
-    Passa como parametro o seu login e retorna verdadeiro caso esse login já exista.
+    Metodo que verifica se um usuï¿½rio ï¿½ repetido
+    Passa como parametro o seu login e retorna verdadeiro caso esse login jï¿½ exista.
 */
 bool Server::usuarioRepetido(const string &l){
     for(list<Usuario>::iterator k = usuarios.begin(); k != usuarios.end();k++)
@@ -77,18 +77,18 @@ bool Server::usuarioRepetido(const string &l){
     return false;
 }
 /*
-    Método que verifica se a thread foi criada com sucesso.
+    Mï¿½todo que verifica se a thread foi criada com sucesso.
     se existir erro ele finaliza o programa.
 */
 void Server::statusThread(HANDLE tHandle){
     if (tHandle == NULL){
-        cerr << "Problema na criação da thread: " << GetLastError() << endl;
+        cerr << "Problema na criaï¿½ï¿½o da thread: " << GetLastError() << endl;
         exit(1);
     }
 }
 /*
-    Método que cria um usuário.
-    Cadastra todas as infomrações necessárias para um usuário
+    Mï¿½todo que cria um usuï¿½rio.
+    Cadastra todas as infomraï¿½ï¿½es necessï¿½rias para um usuï¿½rio
     retorna verdadeiro caso ele for criado com sucesso.
 */
 bool Server::criarUsuario(const string &l, const string &s,tcp_winsocket so){
@@ -119,11 +119,11 @@ bool Server::loginUsuario(string login, string senha, tcp_winsocket socket){
         }
     }
     enviarComando(CMD_LOGIN_INVALIDO, socket);
-    cout<<"Usuário Logado"<<endl;
+    cout<<"Usuï¿½rio Logado"<<endl;
     return false;
 }
 /*
-    Metodo que verifica se existem erros na abertura da conexão do main
+    Metodo que verifica se existem erros na abertura da conexï¿½o do main
     finaliza o programa caso ocorram erros.
 */
 void Server::abrirConexao(WINSOCKET_STATUS iR){
@@ -132,7 +132,7 @@ void Server::abrirConexao(WINSOCKET_STATUS iR){
         exit(1);
     }
     if (server.listen(PORTA) != SOCKET_OK){
-        cerr << "Não foi possível abrir o socket de controle\n";
+        cerr << "Nï¿½o foi possï¿½vel abrir o socket de controle\n";
         exit(1);
     }
 }
@@ -142,6 +142,7 @@ void Server::abrirConexao(WINSOCKET_STATUS iR){
 void Server::monitorarChegada(bool fim){
     // Inclui na fila de sockets para o select todos os sockets que eu
     // quero monitorar para ver se houve chegada de dados
+
     f.clean();
     if (!(fim = !server.accepting())){
       f.include(server);
@@ -159,7 +160,7 @@ void Server::monitorarChegada(bool fim){
     }
 }
 /*
-    Metodo que realiza funções caso o socket for aceito.
+    Metodo que realiza funï¿½ï¿½es caso o socket for aceito.
 */
 bool Server::socketAceito(){
    int32_t cmd;
@@ -206,7 +207,7 @@ void Server::enviarComando(CommandWhatsProg comando, tcp_winsocket socket){
     iResult = socket.write_int(comando);
     if ( iResult == SOCKET_ERROR ) {
         cerr << "Problema ao enviar mensagem para o cliente " << endl;
-        socket.shutdown();
+        socket.close();
     }
 }
 void Server::enviarComando(CommandWhatsProg comando,int32_t param1, tcp_winsocket socket){
@@ -214,12 +215,12 @@ void Server::enviarComando(CommandWhatsProg comando,int32_t param1, tcp_winsocke
     iResult = socket.write_int(comando);
     if ( iResult == SOCKET_ERROR ) {
         cerr << "Problema ao enviar mensagem para o cliente " << endl;
-        socket.shutdown();
+        socket.close();
     }else{
         iResult = socket.write_int(param1);
         if ( iResult == SOCKET_ERROR ) {
             cerr << "Problema ao enviar mensagem para o cliente " << endl;
-            socket.shutdown();
+            socket.close();
         }
     }
 }
@@ -227,25 +228,25 @@ bool Server::enviarComando(CommandWhatsProg comando, int32_t param1, string para
     iResult = socket.write_int(comando);
     if ( iResult == SOCKET_ERROR ) {
         cerr << "Problema ao enviar mensagem para o cliente " << endl;
-        socket.shutdown();
+        socket.close();
     } else {
         iResult = socket.write_int(param1);
 
         if ( iResult == SOCKET_ERROR ) {
             cerr << "Problema ao enviar mensagem para o cliente " << endl;
-            socket.shutdown();
+            socket.close();
         } else {
             iResult = socket.write_string(param2);
 
             if ( iResult == SOCKET_ERROR ) {
                 cerr << "Problema ao enviar mensagem para o cliente " << endl;
-                socket.shutdown();
+                socket.close();
             } else {
                 iResult = socket.write_string(param3);
 
                 if ( iResult == SOCKET_ERROR ) {
                     cerr << "Problema ao enviar mensagem para o cliente " << endl;
-                    socket.shutdown();
+                    socket.close();
                 } else {
                     return true;
                 }
@@ -262,8 +263,8 @@ void Server::aguardarAcao(){
           if ((*i).getSocket().connected() && f.had_activity((*i).getSocket())){
             iResult = (*i).getSocket().read_int(comando,TIMEOUT*1000);
             if (iResult == SOCKET_ERROR){
-              cerr << "Erro na comunicação\n";
-              (*i).getSocket().shutdown();
+              cerr << "Erro na comunicaï¿½ï¿½o\n";
+              (*i).getSocket().close();
             }else{
                 switch(comando){
                     case CMD_NOVA_MSG:
@@ -290,18 +291,18 @@ void Server::enviarMensagemCliente(Usuario usuario){
     iResult = usuario.getSocket().read_int(param1, TIMEOUT*1000);
     if (iResult == SOCKET_ERROR){
         cerr << "Erro na comunicacao \n";
-        usuario.getSocket().shutdown();
+        usuario.getSocket().close();
     } else{
         iResult = usuario.getSocket().read_string(param2, TIMEOUT*1000);
 
         if (iResult == SOCKET_ERROR){
             cerr << "Erro na comunicacao \n";
-            usuario.getSocket().shutdown();
+            usuario.getSocket().close();
         } else {
             iResult = usuario.getSocket().read_string(param3, TIMEOUT*1000);
             if (iResult == SOCKET_ERROR){
                 cerr << "Erro na comunicacao \n";
-                usuario.getSocket().shutdown();
+                usuario.getSocket().close();
             } else {
                 if (mensagem.setRemetente(usuario.getLogin())) {
                     if (mensagem.setId(param1)) {
@@ -344,7 +345,7 @@ void Server::enviarMensagemCliente(Usuario usuario){
                         enviarComando(CMD_ID_INVALIDA,param1,usuario.getSocket());
                     }
                 }else{
-                    usuario.getSocket().shutdown();
+                    usuario.getSocket().close();
                 }
             }
         }
@@ -357,13 +358,13 @@ void Server::cmd_msg_lida1(Usuario usuario){
     iResult = usuario.getSocket().read_int(param1, TIMEOUT*1000);
     if (iResult == SOCKET_ERROR){
         cerr << "Erro na comunicacao \n";
-        usuario.getSocket().shutdown();
+        usuario.getSocket().close();
     } else{
         iResult = usuario.getSocket().read_string(param2, TIMEOUT*1000);
 
         if (iResult == SOCKET_ERROR){
             cerr << "Erro na comunicacao \n";
-            usuario.getSocket().shutdown();
+            usuario.getSocket().close();
         }else{
             for (list<Mensagem>::iterator it=buffer.begin(); it != buffer.end(); ++it) {
                 if((*it).getRemetente().compare(param2) == 0){
@@ -382,7 +383,7 @@ void Server::cmd_msg_lida1(Usuario usuario){
                     }
                 }
             }
-            usuario.getSocket().shutdown();
+            usuario.getSocket().close();
         }
     }
 }
@@ -396,8 +397,8 @@ void Server::cmd_msg_lida1(Usuario usuario){
 */
 
 /*
-    Método responsavel por verificar o tamanho da string de usuário.
-    Retorna verdadeiro quando o tamanho é inválido.
+    Mï¿½todo responsavel por verificar o tamanho da string de usuï¿½rio.
+    Retorna verdadeiro quando o tamanho ï¿½ invï¿½lido.
 */
 bool Usuario::tamanhoLoginValido(const string &l){
     if((!(l.size()>=TAM_MIN_LOGIN && l.size()<=TAM_MAX_LOGIN))) return true;
@@ -405,8 +406,8 @@ bool Usuario::tamanhoLoginValido(const string &l){
 }
 
 /*
-    Método responsavel por verificar o tamanho da string de senha.
-    Retorna verdadeiro quando o tamanho é inválido.
+    Mï¿½todo responsavel por verificar o tamanho da string de senha.
+    Retorna verdadeiro quando o tamanho ï¿½ invï¿½lido.
 */
 bool Usuario::tamanhoSenhaValido(const string &l){
     if((!(l.size()>=TAM_MIN_SENHA && l.size()<=TAM_MAX_SENHA))) return true;

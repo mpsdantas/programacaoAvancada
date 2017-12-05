@@ -1,0 +1,1 @@
+#define PORTA_TESTE "23456"

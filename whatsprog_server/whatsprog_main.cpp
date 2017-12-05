@@ -10,6 +10,7 @@ DWORD WINAPI servidor(LPVOID lpParameter){
     while(!fim){
         s.monitorarChegada(fim);
         s.socketAceito();
+        s.aguardarAcao();
     }
 }
 int main(){

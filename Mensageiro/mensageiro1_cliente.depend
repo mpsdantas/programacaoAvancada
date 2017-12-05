@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1495738935 source:c:\users\marcus paulo\desktop\mensageiro\winsocket.cpp
+	<iostream>
+	"winsocket.h"
+
+1498662100 c:\users\marcus paulo\desktop\mensageiro\winsocket.h
+	<iostream>
+	<cstdlib>
+	<winsock2.h>
+	<ws2tcpip.h>
+	<string>
+
+1512231606 source:c:\users\marcus paulo\desktop\mensageiro\mensageiro1_cliente.cpp
+	<iostream>
+	<string.h>
+	<locale.h>
+	"winsocket.h"
+	"mensageiro.h"
+
+1495728583 c:\users\marcus paulo\desktop\mensageiro\mensageiro.h
+
