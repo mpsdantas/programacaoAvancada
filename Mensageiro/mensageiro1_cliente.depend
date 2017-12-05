@@ -19,3 +19,23 @@
 
 1495728583 c:\users\marcus paulo\desktop\mensageiro\mensageiro.h
 
+1512497048 source:c:\users\marcus paulo\documents\programacaoavancada\mensageiro\mensageiro1_cliente.cpp
+	<iostream>
+	<string.h>
+	<locale.h>
+	"winsocket.h"
+	"mensageiro.h"
+
+1512497048 c:\users\marcus paulo\documents\programacaoavancada\mensageiro\winsocket.h
+	<iostream>
+	<cstdlib>
+	<winsock2.h>
+	<ws2tcpip.h>
+	<string>
+
+1512497048 c:\users\marcus paulo\documents\programacaoavancada\mensageiro\mensageiro.h
+
+1512497048 source:c:\users\marcus paulo\documents\programacaoavancada\mensageiro\winsocket.cpp
+	<iostream>
+	"winsocket.h"
+

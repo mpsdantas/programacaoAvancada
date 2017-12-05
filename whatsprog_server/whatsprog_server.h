@@ -14,7 +14,7 @@
 #define TAM_MIN_SENHA 6
 #define TAM_MAX_SENHA 12
 #define TAM_MAX_MSG 255
-#define TIMEOUT 60
+#define TIMEOUT 600
 //FIM DEFINIÇÕES DE CONSTANTES DO PROGRAMA
 
 //INICIO ENUM'S
@@ -103,6 +103,7 @@ private:
     tcp_winsocket_server server; // Socket do servidor
     WINSOCKET_STATUS iResult;
     list<Usuario> usuarios;
+    list<Usuario> clientes;
     list<Mensagem> buffer;
 public:
     bool criarUsuario(const string &l, const string &s, tcp_winsocket so);
