@@ -55,7 +55,7 @@ bool Mensagem::setStatus(MsgStatus S)
 /*
 ##############-----METODOS CLASSE SERVER-----##############
 */
-void Server::checkBuffer(Usuario usuario){
+void Server::checkBuffer(Usuario &usuario){
     for (list<Mensagem>::iterator it=buffer.begin(); it != buffer.end(); ++it) {
         if ((*it).getDestinatario().compare(usuario.getLogin()) == 0){
             if ((*it).getStatus() == MSG_RECEBIDA) {
@@ -91,7 +91,7 @@ void Server::statusThread(HANDLE tHandle){
     Cadastra todas as infomra��es necess�rias para um usu�rio
     retorna verdadeiro caso ele for criado com sucesso.
 */
-bool Server::criarUsuario(const string &l, const string &s,tcp_winsocket so){
+bool Server::criarUsuario(const string &l, const string &s,tcp_winsocket &so){
     Usuario u;
 
     u.setLogin(l);
@@ -113,17 +113,18 @@ bool Server::criarUsuario(const string &l, const string &s,tcp_winsocket so){
     return true;
 }
 
-bool Server::loginUsuario(string login, string senha, tcp_winsocket socket){
+bool Server::loginUsuario(string login, string senha, tcp_winsocket &socket){
     for (list<Usuario>::iterator it=usuarios.begin(); it != usuarios.end(); ++it){
         if ((*it).getLogin().compare(login) + (*it).getSenha().compare(senha) == 0) {
+            cout << "------------------------------"<<endl;
+            cout << "NOVO LOGIN" << endl;
+            cout << "Usuario: " << login << endl;
+            cout << "------------------------------"<<endl;
+            (*it).setSocket(socket);
             enviarComando(CMD_LOGIN_OK, socket);
             return true;
         }
     }
-    cout << "------------------------------"<<endl;
-    cout << "NOVO LOGIN" << endl;
-    cout << "Usuario: " << login << endl;
-    cout << "------------------------------"<<endl;
     enviarComando(CMD_LOGIN_INVALIDO, socket);
     return false;
 }
@@ -151,7 +152,7 @@ void Server::monitorarChegada(bool fim){
     f.clean();
     if (server.accepting()){
       f.include(server);
-      for (list<Usuario>::iterator i=clientes.begin(); i!=clientes.end(); i++){
+      for (list<Usuario>::iterator i=usuarios.begin(); i!=usuarios.end(); i++){
     	  if ((*i).getSocket().connected())
     	  {
 	        f.include((*i).getSocket());
@@ -160,7 +161,7 @@ void Server::monitorarChegada(bool fim){
     	  }
       }
     }
-    WINSOCKET_STATUS iResult = f.wait_read(TIMEOUT*1000);
+    iResult = f.wait_read(TIMEOUT*1000);
     if (iResult==SOCKET_ERROR){
         cerr << "Erro na espera por alguma atividade\n";
     }
@@ -206,7 +207,7 @@ bool Server::socketAceito(){
         }
     }
 }
-void Server::enviarComando(CommandWhatsProg comando, tcp_winsocket socket){
+void Server::enviarComando(CommandWhatsProg comando, tcp_winsocket &socket){
     WINSOCKET_STATUS iResult;
     iResult = socket.write_int(comando);
     if ( iResult == SOCKET_ERROR ) {
@@ -214,7 +215,7 @@ void Server::enviarComando(CommandWhatsProg comando, tcp_winsocket socket){
         socket.close();
     }
 }
-void Server::enviarComando(CommandWhatsProg comando,int32_t param1, tcp_winsocket socket){
+void Server::enviarComando(CommandWhatsProg comando,int32_t param1, tcp_winsocket &socket){
     WINSOCKET_STATUS iResult;
     iResult = socket.write_int(comando);
     if ( iResult == SOCKET_ERROR ) {
@@ -228,7 +229,7 @@ void Server::enviarComando(CommandWhatsProg comando,int32_t param1, tcp_winsocke
         }
     }
 }
-bool Server::enviarComando(CommandWhatsProg comando, int32_t param1, string param2, string param3, tcp_winsocket socket){
+bool Server::enviarComando(CommandWhatsProg comando, int32_t param1, string param2, string param3, tcp_winsocket &socket){
     iResult = socket.write_int(comando);
     if ( iResult == SOCKET_ERROR ) {
         cerr << "Problema ao enviar mensagem para o cliente (Metodo enviarComando)." << endl;
@@ -263,7 +264,7 @@ bool Server::enviarComando(CommandWhatsProg comando, int32_t param1, string para
 void Server::aguardarAcao(){
     int32_t comando;
 
-    for (list<Usuario>::iterator i = clientes.begin(); i!=clientes.end(); i++){
+    for (list<Usuario>::iterator i = usuarios.begin(); i!=usuarios.end(); i++){
           if ((*i).getSocket().connected() && f.had_activity((*i).getSocket())){
             iResult = (*i).getSocket().read_int(comando,TIMEOUT*1000);
             if (iResult == SOCKET_ERROR){
@@ -278,9 +279,10 @@ void Server::aguardarAcao(){
                         cmd_msg_lida1((*i));
                         break;
                     case CMD_LOGOUT_USER:
-                        cout << "Usuario saiu" << endl;
                         (*i).getSocket().close();
-                        i = clientes.erase(i);
+                        cout << "---------------------" << endl;
+                        cout << "Usuario " << (*i).getLogin() << " saiu."<<endl;
+                        cout << "---------------------" << endl;
                         break;
                     default:
                         (*i).getSocket().close();
@@ -290,7 +292,7 @@ void Server::aguardarAcao(){
           }
     }
 }
-void Server::enviarMensagemCliente(Usuario usuario){
+void Server::enviarMensagemCliente(Usuario &usuario){
     int32_t param1;
     string param2, param3;
     Mensagem mensagem;
@@ -329,6 +331,8 @@ void Server::enviarMensagemCliente(Usuario usuario){
                                         buffer.push_back(mensagem);
                                         if((*k).getSocket().connected()){
                                             if (enviarComando(CMD_NOVA_MSG, param1, param2, param3, (*k).getSocket())) {
+                                                cout << "De: " << param2 <<endl;
+                                                cout << "Para: " << param3 <<endl;
                                                 mensagem.setStatus(MSG_ENTREGUE);
                                                 enviarComando(CMD_MSG_ENTREGUE, param1, usuario.getSocket());
                                             } else {
@@ -357,7 +361,7 @@ void Server::enviarMensagemCliente(Usuario usuario){
         }
     }
 }
-void Server::cmd_msg_lida1(Usuario usuario){
+void Server::cmd_msg_lida1(Usuario &usuario){
     int32_t param1;
     string param2;//remetente
     Mensagem mensagem;

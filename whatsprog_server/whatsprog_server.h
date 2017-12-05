@@ -86,8 +86,8 @@ public:
     inline Usuario(): id(0),login(""),senha(""),s(){}
     inline string getLogin(){return login;}
     inline string getSenha(){return senha;}
-    inline tcp_winsocket getSocket(){return s;}
-    inline tcp_winsocket setSocket(tcp_winsocket so){s = so;}
+    inline tcp_winsocket& getSocket(){return s;}
+    inline tcp_winsocket setSocket(const tcp_winsocket &so){s = so;}
     inline void setLogin(const string &l){login = l;}
     inline void setSenha(const string &s){senha = s;}
     bool tamanhoLoginValido(const string &l);
@@ -103,23 +103,23 @@ private:
     tcp_winsocket_server server; // Socket do servidor
     WINSOCKET_STATUS iResult;
     list<Usuario> usuarios;
-    list<Usuario> clientes;
+
     list<Mensagem> buffer;
 public:
-    bool criarUsuario(const string &l, const string &s, tcp_winsocket so);
+    bool criarUsuario(const string &l, const string &s, tcp_winsocket &so);
     bool usuarioRepetido(const string &l);
     void abrirConexao(WINSOCKET_STATUS iResult);
     void statusThread(HANDLE tHandle);
     void monitorarChegada(bool fim);
     bool socketAceito();
-    void enviarComando(CommandWhatsProg comando, tcp_winsocket socket);
-    void enviarComando(CommandWhatsProg comando,int32_t param1, tcp_winsocket socket);
-    bool loginUsuario(string login, string password, tcp_winsocket socket);
+    void enviarComando(CommandWhatsProg comando, tcp_winsocket &socket);
+    void enviarComando(CommandWhatsProg comando,int32_t param1, tcp_winsocket &socket);
+    bool enviarComando(CommandWhatsProg comando, int32_t param1, string param2, string param3, tcp_winsocket &socket);
+    bool loginUsuario(string login, string password, tcp_winsocket &socket);
     bool enviarMensagem();
     void aguardarAcao();
-    void enviarMensagemCliente(Usuario usuario);
-    void cmd_msg_lida1(Usuario usuario);
-    bool enviarComando(CommandWhatsProg comando, int32_t param1, string param2, string param3, tcp_winsocket socket);
-    void checkBuffer(Usuario usuario);
+    void enviarMensagemCliente(Usuario &usuario);
+    void cmd_msg_lida1(Usuario &usuario);
+    void checkBuffer(Usuario &usuario);
 };
 //CLASSE SERVER
