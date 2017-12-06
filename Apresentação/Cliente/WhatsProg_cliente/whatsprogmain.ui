@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WhatsProgMain</class>
+ <widget class="QMainWindow" name="WhatsProgMain">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Mensageiro</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0" colspan="2">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="labelConversas">
+        <property name="text">
+         <string>CONVERSAS</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTableView" name="tableViewConversas"/>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="2">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLabel" name="labelMensagens">
+        <property name="text">
+         <string>MENSAGENS</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTableView" name="tableViewMensagens"/>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="labelMensagem">
+      <property name="text">
+       <string>Mensagem:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1" colspan="2">
+     <widget class="QLineEdit" name="lineEditMensagem"/>
+    </item>
+   </layout>
+   <zorder>labelMensagem</zorder>
+   <zorder>lineEditMensagem</zorder>
+   <zorder></zorder>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>900</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuUsu_rio">
+    <property name="title">
+     <string>Usuário</string>
+    </property>
+    <addaction name="actionNovo"/>
+    <addaction name="actionConectar"/>
+    <addaction name="actionDesconectar"/>
+    <addaction name="separator"/>
+    <addaction name="actionSair"/>
+   </widget>
+   <widget class="QMenu" name="menuConversa">
+    <property name="title">
+     <string>Conversas</string>
+    </property>
+    <addaction name="actionNova_conversa"/>
+    <addaction name="actionRemover_conversa"/>
+   </widget>
+   <widget class="QMenu" name="menuMensagens">
+    <property name="title">
+     <string>Mensagens</string>
+    </property>
+    <addaction name="actionApagar_mensagens"/>
+   </widget>
+   <addaction name="menuUsu_rio"/>
+   <addaction name="menuConversa"/>
+   <addaction name="menuMensagens"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionNovo">
+   <property name="text">
+    <string>Novo ...</string>
+   </property>
+  </action>
+  <action name="actionConectar">
+   <property name="text">
+    <string>Conectar ...</string>
+   </property>
+  </action>
+  <action name="actionDesconectar">
+   <property name="text">
+    <string>Desconectar</string>
+   </property>
+  </action>
+  <action name="actionTrocar_senha">
+   <property name="text">
+    <string>Trocar senha ...</string>
+   </property>
+  </action>
+  <action name="actionSair">
+   <property name="text">
+    <string>Sair</string>
+   </property>
+  </action>
+  <action name="actionNova_conversa">
+   <property name="text">
+    <string>Nova conversa ...</string>
+   </property>
+  </action>
+  <action name="actionRemover_conversa">
+   <property name="text">
+    <string>Remover conversa</string>
+   </property>
+  </action>
+  <action name="actionApagar_mensagens">
+   <property name="text">
+    <string>Apagar mensagens</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

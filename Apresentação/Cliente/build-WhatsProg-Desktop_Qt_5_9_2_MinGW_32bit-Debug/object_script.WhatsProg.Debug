@@ -1,0 +1,16 @@
+INPUT(
+./debug\dados_whatsprog.o
+./debug\dados_cliente.o
+./debug\logindialog.o
+./debug\modelconversas.o
+./debug\modelmensagens.o
+./debug\whatsprogmain.o
+./debug\main.o
+./debug\winsocket.o
+./debug\nova_msg.o
+./debug\moc_logindialog.o
+./debug\moc_modelconversas.o
+./debug\moc_modelmensagens.o
+./debug\moc_whatsprogmain.o
+./debug\moc_nova_msg.o
+);

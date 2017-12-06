@@ -59,7 +59,7 @@ void Server::checkBuffer(Usuario &usuario){
     for (list<Mensagem>::iterator it=buffer.begin(); it != buffer.end(); ++it) {
         if ((*it).getDestinatario().compare(usuario.getLogin()) == 0){
             if ((*it).getStatus() == MSG_RECEBIDA) {
-                if (enviarComando(CMD_NOVA_MSG, (*it).getId(), usuario.getLogin(), (*it).getTexto(), usuario.getSocket())) {
+                if (enviarComando(CMD_NOVA_MSG, (*it).getId(), (*it).getRemetente(), (*it).getTexto(), usuario.getSocket())) {
                     (*it).setStatus(MSG_ENTREGUE);
                     enviarComando(CMD_MSG_ENTREGUE, (*it).getId(), usuario.getSocket());
                 }
@@ -376,9 +376,9 @@ void Server::enviarMensagemCliente(Usuario &usuario){
                                         enviarComando(CMD_MSG_INVALIDA,param1,usuario.getSocket());
                                         return;
                                     }
-                                }else{
+                                }/*else{
                                     enviarComando(CMD_USER_INVALIDO, param1, usuario.getSocket());
-                                }
+                                }*/
                             }
                         } else {
                             enviarComando(CMD_USER_INVALIDO,param1,usuario.getSocket());

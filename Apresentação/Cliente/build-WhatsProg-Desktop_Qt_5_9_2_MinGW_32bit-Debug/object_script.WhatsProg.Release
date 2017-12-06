@@ -1,0 +1,16 @@
+INPUT(
+./release\dados_whatsprog.o
+./release\dados_cliente.o
+./release\logindialog.o
+./release\modelconversas.o
+./release\modelmensagens.o
+./release\whatsprogmain.o
+./release\main.o
+./release\winsocket.o
+./release\nova_msg.o
+./release\moc_logindialog.o
+./release\moc_modelconversas.o
+./release\moc_modelmensagens.o
+./release\moc_whatsprogmain.o
+./release\moc_nova_msg.o
+);
