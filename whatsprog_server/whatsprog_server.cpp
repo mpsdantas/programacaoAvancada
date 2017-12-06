@@ -125,6 +125,7 @@ bool Server::loginUsuario(string login, string senha, tcp_winsocket &socket){
             cout << "------------------------------"<<endl;
             (*it).setSocket(socket);
             enviarComando(CMD_LOGIN_OK, socket);
+            checkBuffer((*it));
             return true;
         }
     }
@@ -335,7 +336,7 @@ void Server::enviarMensagemCliente(Usuario &usuario){
         usuario.getSocket().close();
     } else{
         iResult = usuario.getSocket().read_string(param2, TIMEOUT*1000);
-
+        cout << param2;
         if (iResult == SOCKET_ERROR){
             cerr << "Erro na comunicacao (Metodo enviarMensagemCliente) \n";
             usuario.getSocket().close();
