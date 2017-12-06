@@ -4,6 +4,7 @@
 #include <vector>
 #include <list>
 #include <stdint.h>
+#include <fstream>
 #include "winsocket.h"
 //FIM INCLUDE
 
@@ -87,7 +88,7 @@ public:
     inline string getLogin(){return login;}
     inline string getSenha(){return senha;}
     inline tcp_winsocket& getSocket(){return s;}
-    inline tcp_winsocket setSocket(const tcp_winsocket &so){s = so;}
+    inline tcp_winsocket& setSocket(const tcp_winsocket &so){s = so;}
     inline void setLogin(const string &l){login = l;}
     inline void setSenha(const string &s){senha = s;}
     bool tamanhoLoginValido(const string &l);
@@ -103,7 +104,6 @@ private:
     tcp_winsocket_server server; // Socket do servidor
     WINSOCKET_STATUS iResult;
     list<Usuario> usuarios;
-
     list<Mensagem> buffer;
 public:
     bool criarUsuario(const string &l, const string &s, tcp_winsocket &so);
@@ -121,5 +121,9 @@ public:
     void enviarMensagemCliente(Usuario &usuario);
     void cmd_msg_lida1(Usuario &usuario);
     void checkBuffer(Usuario &usuario);
+    ostream &salvarUsuarios(ostream &O);
+    ostream &salvarBuffer(ostream &O);
+    istream &recuperarUsuarios(istream &I);
+    void carregarUsuarios();
 };
 //CLASSE SERVER

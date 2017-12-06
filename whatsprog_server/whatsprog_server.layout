@@ -7,9 +7,18 @@
 			<Cursor1 position="95" topLine="5" />
 		</Cursor>
 	</File>
+	<File name="winsocket.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5664" topLine="100" />
+		</Cursor>
+		<Folding>
+			<Collapse line="44" />
+			<Collapse line="60" />
+		</Folding>
+	</File>
 	<File name="whatsprog_server.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="12367" topLine="75" />
+			<Cursor1 position="3614" topLine="0" />
 		</Cursor>
 		<Folding>
 			<Collapse line="2" />
@@ -29,24 +38,9 @@
 			<Collapse line="217" />
 			<Collapse line="231" />
 			<Collapse line="263" />
+			<Collapse line="294" />
 			<Collapse line="363" />
-			<Collapse line="412" />
-			<Collapse line="421" />
 		</Folding>
-	</File>
-	<File name="winsocket.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="5664" topLine="100" />
-		</Cursor>
-		<Folding>
-			<Collapse line="44" />
-			<Collapse line="60" />
-		</Folding>
-	</File>
-	<File name="winsocket.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="17193" topLine="452" />
-		</Cursor>
 	</File>
 	<File name="whatsprog_server.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
@@ -56,5 +50,10 @@
 			<Collapse line="20" />
 			<Collapse line="27" />
 		</Folding>
+	</File>
+	<File name="winsocket.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="17193" topLine="452" />
+		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

@@ -18,6 +18,7 @@ DWORD WINAPI servidor(LPVOID lpParameter){
 int main(){
     setlocale(LC_ALL,"portuguese");
     WSADATA wsaData;
+    s.carregarUsuarios();
     // All processes that call Winsock functions must first initialize the use of the Windows Sockets DLL (WSAStartup)
     // before making other Winsock functions calls
     // The MAKEWORD(2,2) parameter of WSAStartup makes a request for version 2.2 of Winsock on the system

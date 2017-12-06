@@ -93,7 +93,9 @@ void Server::statusThread(HANDLE tHandle){
 */
 bool Server::criarUsuario(const string &l, const string &s,tcp_winsocket &so){
     Usuario u;
-
+    string nome = "usuarios.txt";
+    ofstream arq(nome.c_str());
+    //ifstream teste(nome.c_str());
     u.setLogin(l);
     u.setSenha(s);
 
@@ -104,6 +106,7 @@ bool Server::criarUsuario(const string &l, const string &s,tcp_winsocket &so){
 
     u.setSocket(so);
     usuarios.push_back(u);
+    salvarUsuarios(arq);
     cout << "------------------------------"<<endl;
     cout << "NOVO USUARIO CADASTRADO" << endl;
     cout << "Usuario: " << l << endl;
@@ -166,9 +169,39 @@ void Server::monitorarChegada(bool fim){
         cerr << "Erro na espera por alguma atividade\n";
     }
 }
+ostream& Server::salvarUsuarios(ostream &O){
+    O << "USUARIOS " << usuarios.size()<<"\n";
+    for(list<Usuario>::iterator i = usuarios.begin(); i!=usuarios.end(); i++){
+        O << (*i).getLogin() << "," << (*i).getSenha() << ";\n";
+    }
+}
+istream& Server::recuperarUsuarios(istream &I){
+    int n;
+    string cabecalho,login,senha;
+    getline(I,cabecalho,' ');
+    I >> n;
+    Usuario usuario;
+    for(int i=0; i<n;i++){
+        I.ignore(255,'\n');
+        getline(I,login,',');
+        usuario.setLogin(login);
+        getline(I,senha,';');
+        usuario.setSenha(senha);
+        usuarios.push_back(usuario);
+    }
+}
+void Server::carregarUsuarios(){
+    string nome = "usuarios.txt";
+    ifstream arq(nome.c_str());
+    if (arq.is_open()){
+        recuperarUsuarios(arq);
+    }
+}
+
 /*
     Metodo que realiza fun��es caso o socket for aceito.
 */
+
 bool Server::socketAceito(){
    int32_t cmd;
     string login, password;
@@ -264,7 +297,7 @@ bool Server::enviarComando(CommandWhatsProg comando, int32_t param1, string para
 void Server::aguardarAcao(){
     int32_t comando;
 
-    for (list<Usuario>::iterator i = usuarios.begin(); i!=usuarios.end(); i++){
+    for(list<Usuario>::iterator i = usuarios.begin(); i!=usuarios.end(); i++){
           if ((*i).getSocket().connected() && f.had_activity((*i).getSocket())){
             iResult = (*i).getSocket().read_int(comando,TIMEOUT*1000);
             if (iResult == SOCKET_ERROR){
@@ -330,9 +363,7 @@ void Server::enviarMensagemCliente(Usuario &usuario){
                                         enviarComando(CMD_MSG_RECEBIDA,param1,usuario.getSocket());
                                         buffer.push_back(mensagem);
                                         if((*k).getSocket().connected()){
-                                            if (enviarComando(CMD_NOVA_MSG, param1, param2, param3, (*k).getSocket())) {
-                                                cout << "De: " << param2 <<endl;
-                                                cout << "Para: " << param3 <<endl;
+                                            if (enviarComando(CMD_NOVA_MSG, param1, mensagem.getRemetente(), param3, (*k).getSocket())) {
                                                 mensagem.setStatus(MSG_ENTREGUE);
                                                 enviarComando(CMD_MSG_ENTREGUE, param1, usuario.getSocket());
                                             } else {
